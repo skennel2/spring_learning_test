@@ -51,11 +51,26 @@ public class ObjectUtilsTest {
 	@Test
 	public void isEmptyTest() 
 	{
-		Car car = new Car();
-		//car.setName("Beamer 520d");
+		String str = "";
 		
-		boolean isEmpty = ObjectUtils.isEmpty(car);
+		// Object를 인자로 받는데, String에 대해서 빈 스트링인지 여부를 리턴한다.		
+		boolean isEmpty = ObjectUtils.isEmpty(str);
+				
+		assertEquals(true, isEmpty);
 		
+		// 일단 인스턴스에서 toString()에 빈스트링을 리턴하게 한다면 어떻게 될까?
+		ToStringReturnEmptyString instance = new ToStringReturnEmptyString();		
+		isEmpty = ObjectUtils.isEmpty(instance);
+		
+		// 빈값으로 보지 않는다. 즉 toString 리턴값과는 관련이 없다.
 		assertEquals(false, isEmpty);
 	}	
+	
+	class ToStringReturnEmptyString
+	{
+		@Override
+		public String toString() {
+			return null;
+		}		
+	}
 }
