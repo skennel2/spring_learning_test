@@ -1,4 +1,4 @@
-package org.almansa.springtest.testobject;
+package org.almansa.springtest.applicationcontext;
 
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.stereotype.Component;

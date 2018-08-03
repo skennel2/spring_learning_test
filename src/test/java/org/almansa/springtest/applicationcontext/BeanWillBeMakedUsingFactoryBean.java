@@ -1,4 +1,4 @@
-package org.almansa.springtest.testobject;
+package org.almansa.springtest.applicationcontext;
 
 public class BeanWillBeMakedUsingFactoryBean {
 	public void doSomething() {

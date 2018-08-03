@@ -1,7 +1,6 @@
 package org.almansa.springtest.applicationcontext;
 
 import org.almansa.springtest.testobject.ApplicationConfig;
-import org.almansa.springtest.testobject.BeanWillBeMakedUsingFactoryBean;
 import org.almansa.springtest.testobject.HelloService;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -42,10 +41,9 @@ public class ApplicationContextTest {
 	 */
 	@Test
 	public void factoryBeanTest() {
-		try(AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class))
+		try(AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class))
 		{
-			BeanWillBeMakedUsingFactoryBean bean = context.getBean(BeanWillBeMakedUsingFactoryBean.class);
-			
+			BeanWillBeMakedUsingFactoryBean bean = context.getBean(BeanWillBeMakedUsingFactoryBean.class);			
 			bean.doSomething();
 		}
 	}

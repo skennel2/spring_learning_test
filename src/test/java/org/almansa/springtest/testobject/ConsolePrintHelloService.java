@@ -6,5 +6,4 @@ public class ConsolePrintHelloService implements HelloService {
 	public void hello() {		
 		System.out.println("Hello");
 	}
-
 }
