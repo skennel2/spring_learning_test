@@ -1,4 +1,4 @@
-package org.almansa.springtest.validation;
+package org.almansa.springtest.bean.validation;
 
 public class Person {
 	private String name;

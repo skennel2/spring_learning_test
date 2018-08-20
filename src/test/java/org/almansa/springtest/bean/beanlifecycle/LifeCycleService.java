@@ -1,4 +1,4 @@
-package org.almansa.springtest.beanlifecycle;
+package org.almansa.springtest.bean.beanlifecycle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
