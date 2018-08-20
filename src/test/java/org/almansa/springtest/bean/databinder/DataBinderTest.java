@@ -6,6 +6,10 @@ import org.junit.Test;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.validation.DataBinder;
 
+/**
+ * 프로퍼티 정보를 이용해 빈 오브젝트에 데이터를 바인딩할 수 있게도와주며 
+ * Validator를 통해 바인딩된 데이터의 유효성검사를 수행한다.
+ */
 public class DataBinderTest {
 
 	@Test
