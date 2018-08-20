@@ -1,5 +1,7 @@
 package org.almansa.springtest.applicationcontext;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.almansa.springtest.testobject.ApplicationConfig;
 import org.almansa.springtest.testobject.HelloService;
 import org.junit.Test;
@@ -13,7 +15,7 @@ public class ApplicationContextTest {
 	 * 때문에 HelloService의 구현체는 @Component에서 파생된 어노테이션이 안붙어 있지만 Config클래스를 이용해서 정상적으로 빈으로 등록된것을 확인할 수 있다.				
 	 */
 	@Test
-	public void applicationContextGetBeanUsingBasePackageTest() {
+	public void getBean으로_등록된_빈_가져오기() {
 		
 		// AutoClosable 인터페이스는 AbstractApplicationContext 레벨에서 정의되어있다. 
 		// ApplicationContext 레벨에는 정의되어있지 않다.
@@ -25,7 +27,7 @@ public class ApplicationContextTest {
 	}
 
 	@Test
-	public void applicationContextGetBeanUsingConfigClassTest() {
+	public void config클래스로_스프링설정정보읽기() {
 		
 		try(AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class))
 		{
@@ -40,7 +42,7 @@ public class ApplicationContextTest {
 	 * FactoryBean의 getObject()를 통하여 반환되는 Object를 Bean으로 관리하는 것이 가능하게 되는 것이다.
 	 */
 	@Test
-	public void factoryBeanTest() {
+	public void FactoryBean클래스로_빈생성_로직_추상화하기() {
 		try(AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class))
 		{
 			BeanWillBeMakedUsingFactoryBean bean = context.getBean(BeanWillBeMakedUsingFactoryBean.class);			
