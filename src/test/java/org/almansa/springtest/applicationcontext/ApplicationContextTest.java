@@ -1,7 +1,5 @@
 package org.almansa.springtest.applicationcontext;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.almansa.springtest.testobject.ApplicationConfig;
 import org.almansa.springtest.testobject.HelloService;
 import org.junit.Test;

@@ -38,7 +38,7 @@ public class DataBinderTest {
 		db.setDisallowedFields("name");
 		
 		db.bind(pv);
-		
+
 		assertEquals(31, person.getAge());
 		assertEquals(null, person.getName());
 	}
