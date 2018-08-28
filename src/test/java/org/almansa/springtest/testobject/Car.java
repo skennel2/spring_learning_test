@@ -1,18 +1,18 @@
 package org.almansa.springtest.testobject;
 
 public class Car {
-	private String name;
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	@Override
-	public String toString() {
-		return "";
-	}	
+    @Override
+    public String toString() {
+        return "";
+    }
 }
