@@ -22,4 +22,16 @@ public class BeanWrapperTest {
         assertEquals(31, age);
         assertEquals(31, person.getAge());
     }
+    
+    @Test
+    public void BeanWrapperImpl로_동적으로_프로퍼티에_접근하기_CaseIntensive_테스트() {
+        Person person = new Person();
+
+        BeanWrapper personBeanWrapper = new BeanWrapperImpl(person);
+        personBeanWrapper.setPropertyValue("age", 31);
+        int age = (int) personBeanWrapper.getPropertyValue("age");
+
+        assertEquals(31, age);
+        assertEquals(31, person.getAge());
+    }    
 }
