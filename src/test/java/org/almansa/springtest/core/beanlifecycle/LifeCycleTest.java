@@ -11,7 +11,7 @@ public class LifeCycleTest {
     public void applicationContextGetBeanUsingBasePackageTest() {
         LifeCycleService service = null;
         try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(
-                "org.almansa.springtest.beanlifecycle")) {
+                "org.almansa.springtest.core.beanlifecycle")) {
             service = context.getBean(LifeCycleService.class);
             assertEquals("Initialize", service.getStatus());
         }
