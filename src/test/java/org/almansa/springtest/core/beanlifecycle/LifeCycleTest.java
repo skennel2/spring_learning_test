@@ -1,4 +1,4 @@
-package org.almansa.springtest.bean.beanlifecycle;
+package org.almansa.springtest.core.beanlifecycle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

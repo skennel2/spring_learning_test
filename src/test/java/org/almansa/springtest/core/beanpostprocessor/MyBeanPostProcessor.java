@@ -1,4 +1,4 @@
-package org.almansa.springtest.bean.beanpostprocessor;
+package org.almansa.springtest.core.beanpostprocessor;
 
 import org.almansa.springtest.testobject.HelloService;
 import org.springframework.beans.BeansException;

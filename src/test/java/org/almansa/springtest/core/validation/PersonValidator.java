@@ -1,4 +1,4 @@
-package org.almansa.springtest.bean.validation;
+package org.almansa.springtest.core.validation;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;

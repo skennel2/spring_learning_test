@@ -1,4 +1,4 @@
-package org.almansa.springtest.bean.databinder;
+package org.almansa.springtest.core.databinder;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

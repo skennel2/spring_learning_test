@@ -1,4 +1,4 @@
-package org.almansa.springtest.applicationcontext;
+package org.almansa.springtest.core.applicationcontext;
 
 import org.almansa.springtest.testobject.ApplicationConfig;
 import org.almansa.springtest.testobject.HelloService;
