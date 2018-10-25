@@ -1,4 +1,4 @@
-package org.almansa.springtest.environment;
+package org.almansa.springtest.core.environment;
 
 import java.util.Map;
 
