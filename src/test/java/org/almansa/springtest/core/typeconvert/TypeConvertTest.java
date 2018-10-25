@@ -1,4 +1,4 @@
-package org.almansa.springtest.typeconvert;
+package org.almansa.springtest.core.typeconvert;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

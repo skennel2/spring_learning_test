@@ -1,4 +1,4 @@
-package org.almansa.springtest.typeconvert;
+package org.almansa.springtest.core.typeconvert;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;

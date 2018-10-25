@@ -1,4 +1,4 @@
-package org.almansa.springtest.http.httpentity;
+package org.almansa.springtest.web.http.httpentity;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

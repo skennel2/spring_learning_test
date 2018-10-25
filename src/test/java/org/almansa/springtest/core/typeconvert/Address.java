@@ -1,4 +1,4 @@
-package org.almansa.springtest.typeconvert;
+package org.almansa.springtest.core.typeconvert;
 
 public class Address {
     public String address;
