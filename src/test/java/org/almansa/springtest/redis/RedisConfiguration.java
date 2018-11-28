@@ -20,8 +20,8 @@ public class RedisConfiguration {
 	}
 	
 	@Bean
-	public RedisTemplate<String, Employee> memberRedisTemplate(){
-		RedisTemplate<String, Employee> redisTemplate = new RedisTemplate<>();
+	public RedisTemplate<Long, Employee> memberRedisTemplate(){
+		RedisTemplate<Long, Employee> redisTemplate = new RedisTemplate<>();
 		redisTemplate.setEnableTransactionSupport(true); // 트랜젝션 적용여부
 		redisTemplate.setDefaultSerializer(new Jackson2JsonRedisSerializer<Employee>(Employee.class));
 		redisTemplate.setConnectionFactory(jedisConnectionFactory());

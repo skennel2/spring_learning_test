@@ -12,7 +12,10 @@ import org.springframework.util.SerializationUtils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import redis.clients.jedis.BasicCommands;
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisWithoutSpringTest {
 
@@ -102,6 +105,35 @@ public class RedisWithoutSpringTest {
 			Employee employeeGet = mapper.readValue(jedis.get(key), Employee.class);
 
 			assertEquals(employeeGet.getName(), "NaYunsu");
+		}
+	}
+
+	@Test
+	public void jedis_풀링사용하기() {
+		JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+
+		try (JedisPool jedisPool = new JedisPool(jedisPoolConfig, "localhost", 6379)) {
+			try (Jedis jedis = jedisPool.getResource()) {
+				final String key = "pooltest";
+				
+				jedis.del(key);
+				jedis.set(key, "hello");
+
+				assertEquals("hello", jedis.get(key));
+			}
+		}
+	}
+	
+	@Test
+	public void jedis_객체의_basic_commends() {
+		final String key = "employee";
+
+		try (Jedis jedis = new Jedis("localhost", 6379)) {
+			jedis.del(key);
+			
+			BasicCommands basicCommands = jedis;
+			
+			basicCommands.flushAll();
 		}
 	}
 }
