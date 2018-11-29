@@ -54,10 +54,12 @@ public class RedisWithoutSpringTest {
 			jedis.rpush(key, "1", "2", "3"); // 리스트의 오른쪽에 인수를 삽입하라
 			List<String> list = jedis.lrange(key, 0, -1); // 마지막 인수 -1은 전부가져오라는 의미
 
-			assertEquals(list.size(), 3);
+			assertEquals(3, list.size());
 
 			jedis.lpush(key, "0");
-
+			list = jedis.lrange(key, 0, -1); 
+			
+			assertEquals(4, list.size());
 			assertEquals("0", jedis.lrange(key, 0, 0).get(0));
 
 		}
