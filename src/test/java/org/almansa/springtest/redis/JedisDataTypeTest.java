@@ -50,4 +50,28 @@ public class JedisDataTypeTest {
 			assertEquals(6, allValues.size());
 		}
 	}
+	
+	@Test
+	public void jedis_list_pop() {
+		final String key = "list_test";
+		try(Jedis jedis = new Jedis("localhost", 6379)){
+			jedis.del(key);
+			
+			jedis.rpush(key, "a", "b", "c");
+			
+			// 리스트의 끝점에서 아이템을 하나씩 꺼낸다.
+			String value = jedis.rpop(key);
+			assertEquals(value, "c");
+			
+			List<String> allValues = jedis.lrange(key, 0, -1);
+			assertEquals(2, allValues.size());
+			
+			// 리스트의 시작점에서 아이템을 하나씩 꺼낸다.
+			String value2 = jedis.lpop(key);
+			assertEquals(value2, "a");
+			
+			List<String> allValues2 = jedis.lrange(key, 0, -1);
+			assertEquals(1, allValues2.size());
+		}
+	}
 }
