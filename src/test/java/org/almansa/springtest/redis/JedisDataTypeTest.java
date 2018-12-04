@@ -52,6 +52,7 @@ public class JedisDataTypeTest {
 		}
 	}
 	
+	// lpop과 rpop을 활용해서 레디스 리스트를 큐나 스택처럼 활용할 수 있다.
 	@Test
 	public void jedis_list_pop() {
 		final String key = "list_test";
