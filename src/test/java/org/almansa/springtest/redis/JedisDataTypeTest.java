@@ -7,6 +7,7 @@ import java.util.List;
 import org.junit.Test;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.exceptions.JedisDataException;
 
 public class JedisDataTypeTest {
 	@Test
@@ -72,6 +73,58 @@ public class JedisDataTypeTest {
 			
 			List<String> allValues2 = jedis.lrange(key, 0, -1);
 			assertEquals(1, allValues2.size());
+		}
+	}
+	
+	@Test
+	public void jedis_list_blocking_pop_is_deperecated() {
+		final String key = "list_test";
+		try(Jedis jedis = new Jedis("localhost", 6379)){
+			jedis.del(key);
+			
+			jedis.rpush(key, "a", "b", "c");
+			
+			//deprecated
+			//jedis.brpop(key);
+		}
+	}
+	
+	// set은 정렬되지 않은 문자열 집합이다.
+	@Test
+	public void jedis_list_set() {
+		final String key = "set_test";
+		try(Jedis jedis = new Jedis("localhost", 6379)){
+			jedis.del(key);
+			
+			jedis.sadd(key, "a", "b", "c", "c");
+			
+			// key에 다음 요소가 들어있는지 여부 리턴
+			boolean isExists = jedis.sismember(key, "c");
+			assertEquals(true, isExists);
+		}
+	}
+	
+	@Test(expected = JedisDataException.class)
+	public void jedis_list_set타입의_데이터를_lrange로_가져온다면() {
+		final String key = "set_test";
+		try(Jedis jedis = new Jedis("localhost", 6379)){
+			jedis.del(key);
+			
+			jedis.sadd(key, "a", "b", "c", "c");
+			List<String> allValues2 = jedis.lrange(key, 0, -1);
+		}
+	}
+	
+	@Test(expected = JedisDataException.class)
+	public void jedis_list_set타입의_데이터를_pop으로_가져온다면 () {
+		final String key = "set_test";
+		try(Jedis jedis = new Jedis("localhost", 6379)){
+			jedis.del(key);
+			
+			jedis.sadd(key, "a", "b", "c", "c");
+			
+			String value = jedis.rpop(key);
+			assertEquals("c", value);
 		}
 	}
 }
