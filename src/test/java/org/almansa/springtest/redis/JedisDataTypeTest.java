@@ -112,7 +112,7 @@ public class JedisDataTypeTest {
 			jedis.del(key);
 			
 			jedis.sadd(key, "a", "b", "c", "c");
-			List<String> allValues2 = jedis.lrange(key, 0, -1);
+			List<String> allValues2 = jedis.lrange(key, 0, -1); //JedisDataException
 		}
 	}
 	
@@ -124,7 +124,7 @@ public class JedisDataTypeTest {
 			
 			jedis.sadd(key, "a", "b", "c", "c");
 			
-			String value = jedis.rpop(key);
+			String value = jedis.rpop(key); // JedisDataException
 			assertEquals("c", value);
 		}
 	}
