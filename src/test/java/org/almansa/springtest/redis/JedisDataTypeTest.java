@@ -10,6 +10,10 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.exceptions.JedisDataException;
 
 public class JedisDataTypeTest {
+	
+	/*
+	 * String Type
+	 */
 	@Test
 	public void jedis_string() {
 		final String key = "set_test";
@@ -27,6 +31,9 @@ public class JedisDataTypeTest {
 		}
 	}
 	
+	/*
+	 * List Type
+	 */
 	@Test
 	public void jedis_list() {
 		final String key = "list_test";
@@ -51,8 +58,10 @@ public class JedisDataTypeTest {
 			assertEquals(6, allValues.size());
 		}
 	}
-	
-	// lpop과 rpop을 활용해서 레디스 리스트를 큐나 스택처럼 활용할 수 있다.
+	 
+	/*
+	 * lpop과 rpop을 활용해서 레디스 List를 큐나 스택처럼 활용할 수 있다.
+	 */
 	@Test
 	public void jedis_list_pop() {
 		final String key = "list_test";
@@ -66,6 +75,8 @@ public class JedisDataTypeTest {
 			assertEquals(value, "c");
 			
 			List<String> allValues = jedis.lrange(key, 0, -1);
+			
+			// c가 빠져서 사이즈가 2 
 			assertEquals(2, allValues.size());
 			
 			// 리스트의 시작점에서 아이템을 하나씩 꺼낸다.
