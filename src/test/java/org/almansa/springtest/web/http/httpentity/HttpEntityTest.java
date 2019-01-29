@@ -18,21 +18,26 @@ public class HttpEntityTest {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.TEXT_PLAIN);
 		headers.setLocation(URI.create("http://test.com"));
-		
+
+		// Http바디, Http헤더로 구성된다.
 		HttpEntity<String> httpEntity = new HttpEntity<>("Hello World", headers);
 		
-		assertEquals(true, httpEntity.hasBody());		
+		assertEquals("Hello World", httpEntity.getBody());		
+		assertEquals(true, httpEntity.hasBody());
+		
 	}
-	
+
 	public void responseEntity() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.TEXT_PLAIN);
 		headers.setLocation(URI.create("http://test.com"));
-		
-		// HttpEntity - ResponseEntity 
-		// Http헤더, Http바디, Http응답코드로 구성된다.
-		ResponseEntity<String> responseEntity = new ResponseEntity<>("Hello World", headers, HttpStatus.OK);		
-		
+
+		// HttpEntity - ResponseEntity
+		// Http바디, Http헤더, Http응답코드로 구성된다.
+		ResponseEntity<String> responseEntity = new ResponseEntity<>("Hello World", headers, HttpStatus.OK);
+
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());	
+		assertEquals("Hello World", responseEntity.getBody());		
 		assertEquals(true, responseEntity.hasBody());
 	}
 }
