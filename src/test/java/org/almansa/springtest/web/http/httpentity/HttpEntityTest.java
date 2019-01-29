@@ -27,6 +27,10 @@ public class HttpEntityTest {
 		
 	}
 
+	/**
+	 * 주로 RestController의 핸들러 메소드에서 리턴하는 형태이다.
+	 */
+	@Test
 	public void responseEntity() {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.TEXT_PLAIN);
@@ -38,6 +42,18 @@ public class HttpEntityTest {
 
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());	
 		assertEquals("Hello World", responseEntity.getBody());		
+		assertEquals(true, responseEntity.hasBody());
+	}
+	
+	@Test
+	public void responseEntity_builder() {
+		ResponseEntity<String> responseEntity = ResponseEntity
+		.ok()
+		.header("header1", "value1")
+		.body("Hello"); // body로 build한다.
+		
+		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());	
+		assertEquals("Hello", responseEntity.getBody());		
 		assertEquals(true, responseEntity.hasBody());
 	}
 }
