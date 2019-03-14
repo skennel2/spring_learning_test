@@ -1,7 +1,7 @@
 package org.almansa.springtest.test;
 
-import org.almansa.springtest.testobject.ApplicationConfig;
-import org.almansa.springtest.testobject.HelloService;
+import org.almansa.springtest.config.ApplicationConfig;
+import org.almansa.springtest.testobject.HelloWorldService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class SpringTestFrameworkTest {
 
 	@Autowired
-	private HelloService helloService;
+	private HelloWorldService helloService;
 
 	@Autowired
 	private ApplicationContext context;
@@ -26,7 +26,7 @@ public class SpringTestFrameworkTest {
 
 	@Test
 	public void contextAutowiredTest() {
-		HelloService helloServiceCalledByContext = context.getBean(HelloService.class);
+		HelloWorldService helloServiceCalledByContext = context.getBean(HelloWorldService.class);
 		helloServiceCalledByContext.hello();
 	}
 }

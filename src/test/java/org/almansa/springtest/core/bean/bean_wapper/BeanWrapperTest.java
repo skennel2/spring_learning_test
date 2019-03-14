@@ -1,4 +1,4 @@
-package org.almansa.springtest.core.bean.beanwapper;
+package org.almansa.springtest.core.bean.bean_wapper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

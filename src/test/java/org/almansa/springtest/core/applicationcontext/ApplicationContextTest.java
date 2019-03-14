@@ -1,7 +1,7 @@
 package org.almansa.springtest.core.applicationcontext;
 
-import org.almansa.springtest.testobject.ApplicationConfig;
-import org.almansa.springtest.testobject.HelloService;
+import org.almansa.springtest.config.ApplicationConfig;
+import org.almansa.springtest.testobject.HelloWorldService;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
@@ -19,7 +19,7 @@ public class ApplicationContextTest {
         // AutoClosable 인터페이스는 AbstractApplicationContext 레벨에서 정의되어있다.
         // ApplicationContext 레벨에는 정의되어있지 않다.
         try (AbstractApplicationContext context = new AnnotationConfigApplicationContext("org.almansa.springtest")) {
-            HelloService service = context.getBean(HelloService.class);
+            HelloWorldService service = context.getBean(HelloWorldService.class);
             service.hello();
         }
     }
@@ -28,7 +28,7 @@ public class ApplicationContextTest {
     public void config클래스로_스프링설정정보읽기() {
 
         try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)) {
-            HelloService service = context.getBean(HelloService.class);
+            HelloWorldService service = context.getBean(HelloWorldService.class);
             service.hello();
         }
     }

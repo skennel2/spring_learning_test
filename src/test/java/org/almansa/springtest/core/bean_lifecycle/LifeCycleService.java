@@ -1,4 +1,4 @@
-package org.almansa.springtest.core.beanlifecycle;
+package org.almansa.springtest.core.bean_lifecycle;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -11,7 +11,7 @@ public class LifeCycleService {
     private String status = "";
 
     public LifeCycleService() {
-        System.out.println("Construntor was called");
+    	status = "Construntor was called";
     }
 
     public String getStatus() {
@@ -23,8 +23,7 @@ public class LifeCycleService {
      */
     @PostConstruct
     private void Initialize() {
-        System.out.println("LifeCycleService Initialize");
-        status = "Initialize";
+        status = "PostConstruct";
     }
 
     /**
@@ -32,7 +31,6 @@ public class LifeCycleService {
      */
     @PreDestroy
     private void destroy() {
-        System.out.println("LifeCycleService Destroy");
-        status = "destroy";
+        status = "PreDestroy";
     }
 }

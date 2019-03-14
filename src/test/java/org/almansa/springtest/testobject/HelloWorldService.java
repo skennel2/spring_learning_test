@@ -1,5 +1,5 @@
 package org.almansa.springtest.testobject;
 
-public interface HelloService {
+public interface HelloWorldService {
     public void hello();
 }
