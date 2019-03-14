@@ -1,4 +1,4 @@
-package org.almansa.springtest.core.bean_name_arawe;
+package org.almansa.springtest.core.aware;
 
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Component;
