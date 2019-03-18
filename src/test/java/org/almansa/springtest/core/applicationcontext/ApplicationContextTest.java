@@ -30,6 +30,7 @@ public class ApplicationContextTest {
         try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)) {
             HelloWorldService service = context.getBean(HelloWorldService.class);
             service.hello();
+            
         }
     }
 
