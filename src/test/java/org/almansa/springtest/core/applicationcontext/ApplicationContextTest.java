@@ -18,7 +18,7 @@ public class ApplicationContextTest {
 
         // AutoClosable 인터페이스는 AbstractApplicationContext 레벨에서 정의되어있다.
         // ApplicationContext 레벨에는 정의되어있지 않다.
-        try (AbstractApplicationContext context = new AnnotationConfigApplicationContext("org.almansa.springtest")) {
+        try (AbstractApplicationContext context = new AnnotationConfigApplicationContext("org.almansa.springtest.testobject")) {
             HelloWorldService service = context.getBean(HelloWorldService.class);
             service.hello();
         }
@@ -41,7 +41,7 @@ public class ApplicationContextTest {
      */
     @Test
     public void FactoryBean클래스로_빈생성_로직_추상화하기() {
-        try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)) {
+        try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(this.getClass().getPackage().getName())) {
             BeanWillBeMakedUsingFactoryBean bean = context.getBean(BeanWillBeMakedUsingFactoryBean.class);
             bean.doSomething();
         }

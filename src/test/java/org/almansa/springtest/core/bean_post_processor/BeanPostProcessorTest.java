@@ -10,7 +10,6 @@ public class BeanPostProcessorTest {
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext()) {
             context.scan(this.getClass().getPackage().getName(), "org.almansa.springtest.testobject");
             context.refresh(); // refresh 안하면 IllegalStateException을 던진다.
-
             HelloWorldService service = context.getBean(HelloWorldService.class);
             service.hello();
         }

@@ -7,10 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = { "org.almansa.springtest" })
+@ComponentScan(basePackages = { "org.almansa.springtest.testobject" })
 public class ApplicationConfig {
-    @Bean
-    public HelloWorldService helloService() {
-        return new ConsolePrintHelloWorldService();
-    }
+
 }

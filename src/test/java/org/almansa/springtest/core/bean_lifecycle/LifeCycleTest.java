@@ -11,6 +11,8 @@ public class LifeCycleTest {
 	public void applicationContextGetBeanUsingBasePackageTest() {
 		LifeCycleService service = null;
 		try (AbstractApplicationContext context = new AnnotationConfigApplicationContext(this.getClass().getPackage().getName())) {
+			
+			
 			service = context.getBean(LifeCycleService.class);
 			assertEquals("PostConstruct", service.getStatus());
 		}
